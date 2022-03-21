@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 
-function Home() {
+function Home(){
     return (
         <>
             <p>~ hello world ~</p>
