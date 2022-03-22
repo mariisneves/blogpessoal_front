@@ -4,7 +4,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-function Footer(){
+function Footer() {
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">

@@ -2,7 +2,7 @@ import React from 'react';
 import { Paper, Box, Button, Grid, Typography } from '@material-ui/core';
 import './Home.css';
 
-function Home(){
+function Home() {
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#a31aff" }}>
