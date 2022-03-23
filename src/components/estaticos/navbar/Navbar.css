@@ -1,0 +1,13 @@
+.bg-navbar{
+    background-color: #5A3A82;
+    color: #D88B56;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.menu{
+    display: flex;
+    justify-content: flex-end !important;
+}
