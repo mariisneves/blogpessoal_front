@@ -1,13 +1,23 @@
 .bg-navbar{
     background-color: #5A3A82;
+    color: #D88B56 !important;
+}
+
+.cursor{
+    cursor: pointer;
     color: #D88B56;
+    margin: 0 10px;
 }
 
 .title{
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .menu{
     display: flex;
     justify-content: flex-end !important;
+}
+
+.text-decoration-none{
+    text-decoration: none;
 }
