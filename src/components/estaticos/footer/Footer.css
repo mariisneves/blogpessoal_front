@@ -9,8 +9,13 @@
 }
 
 .redes{
-    font-size: 60px !important;
+    font-size: 50px !important;
     color: white;
+    margin-inline: 5px;
+}
+
+.github{
+    font-size: 40px !important;
 }
 
 .textos{

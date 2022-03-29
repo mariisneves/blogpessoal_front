@@ -1,29 +1,50 @@
-.titulo{
+.titulo {
     color: white !important;
     font-weight: bold !important;
 }
 
-.img-grid {
-    height: 495px;
-    display: flex;
-    align-items: center;
+.txtSombra{
+    text-shadow: 1px 1px 2px #D88B56, 0 0 1em #D88B56, 0 0 0.2em #D88B56;
 }
 
-.botaoHome{
-    /* border-color: #5A3A82 !important; */
+.imgHome {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 60px;
+    text-align: center;
+}
+
+.botaoHome {
+    border: none !important;
     background-color: #5A3A82 !important;
     color: white !important;
 }
 
-.botaoHome:hover{
+.botaoHome:hover {
     background-color: #312046 !important;
-    /* border-color: #312046 !important; */
+    border: none !important;
 }
 
-.caixa{
-    background-color: #D88B56;
+.caixa {
+    /* background-color: #D88B56; */
+    width: 100vh;
+    min-height: 100vh;
 }
 
-.postagens{
+.background {
+    background-image: url(../../assets/bg_theater.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.postagens {
     background-color: white;
+}
+
+.fonteHome{
+    color: #FFFFFF80;
+    font-size: 12px !important;
 }
