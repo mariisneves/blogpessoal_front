@@ -1,0 +1,25 @@
+.imagemCadastro{
+    background-image: url(https://i.imgur.com/HEAKfbp.jpg);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.textosCadastro{
+    font-weight: bold !important;
+}
+
+.botaoCancelar{
+    margin-right: 20px !important;
+}
+
+.botaoCadastrar{
+    background-color: #5A3A82 !important;
+    color: white !important;
+}
+
+.botaoCadastrar:hover{
+    background-color: #312046 !important;
+}

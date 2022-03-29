@@ -4,8 +4,8 @@ import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
+import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import './App.css';
-
 
 function App() {
   return (
@@ -25,6 +25,10 @@ function App() {
 
           <Route path="/home">
             <Home />
+          </Route>
+
+          <Route path="/cadastrousuario">
+            <CadastroUsuario />
           </Route>
 
         </div>
