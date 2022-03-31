@@ -1,3 +1,7 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.postsConteudo{
+    width: 100% !important;
+}

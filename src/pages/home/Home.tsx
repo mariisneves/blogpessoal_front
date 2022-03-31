@@ -26,7 +26,7 @@ function Home() {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid xs={12} className="postagens">
+                <Grid xs={12} className="postagensHome">
                     <TabPostagem />
                 </Grid>
 

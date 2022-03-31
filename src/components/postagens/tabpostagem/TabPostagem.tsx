@@ -6,9 +6,11 @@ import './TabPostagem.css';
 
 function TabPostagem() {
     const [value, setValue] = useState('1')
+
     function handleChange(event: React.ChangeEvent<{}>, newValue: string) {
-        setValue(newValue);
+        setValue(newValue)
     }
+
     return (
         <>
             <TabContext value={value}>
@@ -19,7 +21,7 @@ function TabPostagem() {
                     </Tabs>
                 </AppBar>
                 <TabPanel value="1" >
-                    <Box display="flex" flexWrap="wrap" justifyContent="center">
+                    <Box display="flex" flexWrap="wrap" justifyContent="center" className="postTabHome">
                         <ListaPostagem />
                     </Box>
                 </TabPanel>

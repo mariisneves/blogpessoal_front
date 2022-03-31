@@ -8,7 +8,8 @@ import './CadastroUsuario.css';
 function CadastroUsuario() {
     let history = useHistory();
     const [confirmarSenha, setConfirmarSenha] = useState<String>("")
-    //definindo estado inicial
+    
+    //atualiza a partir do que o usuario está digitando
     const [user, setUser] = useState<User>(
         {
             id: 0,
@@ -17,7 +18,8 @@ function CadastroUsuario() {
             senha: "",
             foto: ""
         })
-    //pega os dados retornados pela aplicação, o que foi enviado pelo submit
+    
+    //atualiza a partir da resposta do back-end
     const [userResult, setUserResult] = useState<User>(
         {
             id: 0,
