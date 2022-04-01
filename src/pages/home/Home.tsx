@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Paper, Box, Button, Grid, Typography } from '@material-ui/core';
+import { Link, useHistory } from 'react-router-dom';
 import './Home.css';
-import theater from '../../assets/theaterMasks.png';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import theater from '../../assets/theaterMasks.png';
+import useLocalStorage from 'react-use-localstorage';
 
 function Home() {
+
+    let history = useHistory();
+    const [token, setToken] = useLocalStorage("token");
+
+    useEffect(() => {
+        if (token === "") {
+            alert("Você precisa estar logado.")
+            history.push("/login")
+        }
+    }, [token])
+
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className="caixa">
@@ -16,13 +30,16 @@ function Home() {
                         </Box>
                         <Box display="flex" justifyContent="center">
                             <Box marginRight={1}>
+                                <ModalPostagem />
                             </Box>
-                            <Button variant="outlined" className="botaoHome">Ver Postagens</Button>
+                            <Link to="/posts" className="text-decorator-none">
+                                <Button variant="outlined" className="botaoHome">Ver Postagens</Button>
+                            </Link>
                         </Box>
                     </Grid>
                     <Grid item xs={6} className="imgHome">
                         <Box className="img">
-                            <img src={theater} alt="Máscaras que representam o teatro" height="430px"/>
+                            <img src={theater} alt="Máscaras que representam o teatro" height="430px" />
                         </Box>
                     </Grid>
                 </Grid>

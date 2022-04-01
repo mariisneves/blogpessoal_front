@@ -57,21 +57,32 @@ function CadastroTema() {
 
         //se existir um if, ele vai atualizar o tema
         if (id !== undefined) {
-            
-            console.log(tema)
-            await put(`/temas`, tema, setTema, {
-                headers: { "Authorization": token }
-            }) 
-            alert("Tema atualizado com sucesso");
+
+            try {
+                await put(`/temas`, tema, setTema, {
+                    headers: { "Authorization": token }
+                })
+                alert("Tema atualizado com sucesso");
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                alert("Erro, por favor verifique a quantidade minima de caracteres")
+            }
+
         } else { //se não existir, ele vai criar um tema
-            await post(`/temas`, tema, setTema, {
-                headers: { "Authorization": token }
-            }) 
-            alert("Tema cadastrado com sucesso.");
+            try {
+                await post(`/temas`, tema, setTema, {
+                    headers: { "Authorization": token }
+                })
+                alert("Tema cadastrado com sucesso.");
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                alert("Erro, por favor verifique a quantidade minima de caracteres")
+            }
+
         } back()
     }
 
-    function back(){
+    function back() {
         history.push("/temas")
     }
 

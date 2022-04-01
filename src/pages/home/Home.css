@@ -48,3 +48,7 @@
     color: #FFFFFF80;
     font-size: 12px !important;
 }
+
+.text-decorator-none{
+    text-decoration: none;
+}
