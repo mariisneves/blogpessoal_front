@@ -4,8 +4,8 @@ interface Postagem{
     id: number;
     titulo: string;
     texto: string;
-    // data: string;
-    tema?: Tema | null;
+    // data: string; -> não coloca na model pq o backend vai preencher
+    tema?: Tema | null; //campo com ponto de interrogação -> pode ser omitido
 }
 
 export default Postagem;

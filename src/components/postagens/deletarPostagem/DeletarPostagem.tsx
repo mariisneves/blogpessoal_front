@@ -39,12 +39,18 @@ function DeletarPostagem() {
     }
 
     //confirmação de exclusão: se sim, vai excluir a postagem
-    function sim() {
+    async function sim() {
         history.push("/posts")
-        deleteId(`/postagens/${id}`, {
-            headers: { "Authorization": token }
-        });
-        alert("Postagem deletada com sucesso.");
+        try {
+            await deleteId(`/postagens/${id}`, {
+                headers: { "Authorization": token }
+            });
+            alert("Postagem deletada com sucesso.");
+        } catch (error) {
+            console.log(`Error: ${error}`)
+            alert("Erro ao deletar postagem.")
+        }
+        
     }
 
     //confirmação de exclusão: se não, vai voltar pra página de postagens

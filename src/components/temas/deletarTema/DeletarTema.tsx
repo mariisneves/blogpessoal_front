@@ -42,14 +42,20 @@ function DeletarTema() {
     //confirmação de exclusão: se sim, vai excluir o tema
     function sim() {
         history.push("/temas")
-        deleteId(`/temas/${id}`, {
-            headers: { "Authorization": token }
-        });
-        alert("Tema deletado com sucesso.");
+        try {
+            deleteId(`/temas/${id}`, {
+                headers: { "Authorization": token }
+            });
+            alert("Tema deletado com sucesso.");
+        } catch (error) {
+            console.log(`Error: ${error}`)
+            alert("Erro ao deletar tema.")
+        }
+
     }
 
     //confirmação de exclusão: se não, vai voltar pra página de temas
-    function nao(){
+    function nao() {
         history.push("/temas")
     }
 

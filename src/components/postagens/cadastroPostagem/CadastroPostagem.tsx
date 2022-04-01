@@ -9,18 +9,23 @@ import Postagem from '../../../models/Postagem';
 
 function CadastroPostagem() {
 
+    // pra redirecionar o usuário pra outra página
     let history = useHistory();
 
+    //vai pegar o id da url
     const { id } = useParams<{ id: string }>();
+    //da pra pegar outros parâmetros também. ex: cont {usuario, senha} = useParams
+
     const [temas, setTemas] = useState<Tema[]>([])
     const [token, setToken] = useLocalStorage('token');
 
+    //faz uma ação quando uma variável (no caso [token]) sofre alteração
     useEffect(() => {
         if (token === "") {
             alert("Você precisa estar logado")
             history.push("/login")
         }
-    }, [token])
+    }, [token]) //[token] -> é o que fala pro useEffect o que ele tem que monitorar
 
     const [tema, setTema] = useState<Tema>({
         id: 0,

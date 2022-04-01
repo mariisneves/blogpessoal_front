@@ -40,8 +40,8 @@ function ListaPostagem() {
     return (
         <>
             {posts.map(posts => (
-                <Box m={2} >
-                    <Card variant="outlined">
+                <Box className="cardPostagem">
+                    <Card variant="outlined" className='caixaPost'>
                         <CardContent >
                             <Typography color="textSecondary" gutterBottom>
                                 Postagens
