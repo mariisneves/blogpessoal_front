@@ -3,6 +3,10 @@
 }
 
 .btnModal {
-    border-color: white !important;
+    border: none !important;
     background-color: white !important;
+}
+
+.btnModal:hover {
+    background-color: rgb(246, 96, 41) !important;
 }

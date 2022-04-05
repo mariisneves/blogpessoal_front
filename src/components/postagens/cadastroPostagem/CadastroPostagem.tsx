@@ -1,11 +1,12 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import './CadastroPostagem.css';
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function CadastroPostagem() {
 
@@ -17,7 +18,9 @@ function CadastroPostagem() {
     //da pra pegar outros parâmetros também. ex: cont {usuario, senha} = useParams
 
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
 
     //faz uma ação quando uma variável (no caso [token]) sofre alteração
     useEffect(() => {

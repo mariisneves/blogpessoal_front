@@ -1,12 +1,18 @@
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
 }
 
-.textosLogin{
+.textosLogin {
     font-weight: bold !important;
+    text-decoration: none !important;
 }
 
-.imagem{
+.textosLogin:hover {
+    color: #D88B56;
+    text-decoration: none !important;
+}
+
+.imagem {
     background-image: url(../../assets/Broadway.jpg);
     background-repeat: no-repeat;
     width: 100vw;
@@ -15,11 +21,11 @@
     background-position: center;
 }
 
-.botaoLogin{
+.botaoLogin {
     background-color: #5A3A82 !important;
     color: white !important;
 }
 
-.botaoLogin:hover{
+.botaoLogin:hover {
     background-color: #312046 !important;
 }

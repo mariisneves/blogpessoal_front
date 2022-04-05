@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import { Paper, Box, Button, Grid, Typography } from '@material-ui/core';
+import { Box, Button, Grid, Typography } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
+import { TokenState } from '../../store/tokens/tokensReducer';
+import { useSelector } from 'react-redux';
 import './Home.css';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import theater from '../../assets/theaterMasks.png';
-import useLocalStorage from 'react-use-localstorage';
 
 function Home() {
 
     let history = useHistory();
-    const [token, setToken] = useLocalStorage("token");
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
 
     useEffect(() => {
         if (token === "") {
