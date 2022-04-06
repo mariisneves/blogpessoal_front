@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import './ListaPostagem.css';
 import Postagem from '../../../models/Postagem';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function ListaPostagem() {
     
@@ -22,7 +23,16 @@ function ListaPostagem() {
     //verificando se o usuário está logado
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined, 
+            });
             history.push("/login")
         }
     }, [token])

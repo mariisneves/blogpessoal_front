@@ -7,6 +7,7 @@ import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroPostagem() {
 
@@ -25,7 +26,16 @@ function CadastroPostagem() {
     //faz uma ação quando uma variável (no caso [token]) sofre alteração
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
             history.push("/login")
         }
     }, [token]) //[token] -> é o que fala pro useEffect o que ele tem que monitorar
@@ -89,10 +99,28 @@ function CadastroPostagem() {
                 await put(`/postagens`, postagem, setPostagem, {
                     headers: { "Authorization": token }
                 })
-                alert('Postagem atualizada com sucesso');
+                toast.success("Postagem atualizada com sucesso.", {
+                    position: "top-right", //posição do alerta
+                    autoClose: 2000, //tempo da notificação na tela
+                    hideProgressBar: false, //se aparece barra de progresso
+                    closeOnClick: true, //se aparece o X para fechar a notificação
+                    pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                    draggable: false, //se pode mover a notificação de local
+                    theme: "colored", // visual
+                    progress: undefined,
+                });
             } catch (error) {
                 console.log(`Error: ${error}`)
-                alert("Erro, por favor verifique a quantidade minima de caracteres")
+                toast.error("Erro ao atualizar! Por favor, verifique a quantidade mínima de caracteres.", {
+                    position: "top-right", //posição do alerta
+                    autoClose: 2000, //tempo da notificação na tela
+                    hideProgressBar: false, //se aparece barra de progresso
+                    closeOnClick: true, //se aparece o X para fechar a notificação
+                    pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                    draggable: false, //se pode mover a notificação de local
+                    theme: "colored", // visual
+                    progress: undefined,
+                });
             }
 
         } else {
@@ -100,12 +128,29 @@ function CadastroPostagem() {
                 await post(`/postagens`, postagem, setPostagem, {
                     headers: { "Authorization": token }
                 })
-                alert('Postagem cadastrada com sucesso');
+                toast.success("Postagem cadastrada com sucesso.", {
+                    position: "top-right", //posição do alerta
+                    autoClose: 2000, //tempo da notificação na tela
+                    hideProgressBar: false, //se aparece barra de progresso
+                    closeOnClick: true, //se aparece o X para fechar a notificação
+                    pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                    draggable: false, //se pode mover a notificação de local
+                    theme: "colored", // visual
+                    progress: undefined,
+                });
             } catch (error) {
                 console.log(`Error: ${error}`)
-                alert("Erro, por favor verifique a quantidade minima de caracteres")
+                toast.error("Erro ao cadastrar! Por favor, verifique a quantidade mínima de caracteres.", {
+                    position: "top-right", //posição do alerta
+                    autoClose: 2000, //tempo da notificação na tela
+                    hideProgressBar: false, //se aparece barra de progresso
+                    closeOnClick: true, //se aparece o X para fechar a notificação
+                    pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                    draggable: false, //se pode mover a notificação de local
+                    theme: "colored", // visual
+                    progress: undefined,
+                });
             }
-
         }
         back()
     }
@@ -147,4 +192,5 @@ function CadastroPostagem() {
         </Container>
     )
 }
+
 export default CadastroPostagem;

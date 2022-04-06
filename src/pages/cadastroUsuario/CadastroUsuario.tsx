@@ -4,11 +4,12 @@ import { Link, useHistory } from 'react-router-dom';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
     let history = useHistory();
     const [confirmarSenha, setConfirmarSenha] = useState<String>("")
-    
+
     //atualiza a partir do que o usuario está digitando
     const [user, setUser] = useState<User>(
         {
@@ -18,7 +19,7 @@ function CadastroUsuario() {
             senha: "",
             foto: ""
         })
-    
+
     //atualiza a partir da resposta do back-end
     const [userResult, setUserResult] = useState<User>(
         {
@@ -56,9 +57,28 @@ function CadastroUsuario() {
             //rota, dados do usuário, função que vai alterar os dados 
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
             //com as crases, você consegue concatenar a url com parâmetros dinâmicos
-            alert("Usuário cadastrado com sucesso!")
+            
+            toast.success("Usuário cadastrado com sucesso!", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         } else {
-            alert("Favor verificar as informações de cadastro.")
+            toast.error("Dados inconsistentes! Favor verificar as informações de cadastro.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         }
     }
 
@@ -67,7 +87,7 @@ function CadastroUsuario() {
             <Grid item xs={6} className="imagemCadastro"></Grid>
             <Grid item xs={6} alignItems="center">
                 <Box paddingX={10}>
-                    <form onSubmit={ cadastrar }>
+                    <form onSubmit={cadastrar}>
                         <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center"
                             className="textosCadastro">Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
@@ -91,7 +111,7 @@ function CadastroUsuario() {
                                 Cadastrar
                             </Button>
                         </Box>
-                        
+
                     </form>
                 </Box>
             </Grid>

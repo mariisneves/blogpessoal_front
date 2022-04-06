@@ -6,6 +6,7 @@ import './DeletarTema.css';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function DeletarTema() {
@@ -23,7 +24,16 @@ function DeletarTema() {
     //verifica se o usuário está logado
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined, 
+            });
             history.push("/login")
         }
     }, [token])
@@ -49,10 +59,28 @@ function DeletarTema() {
             deleteId(`/temas/${id}`, {
                 headers: { "Authorization": token }
             });
-            alert("Tema deletado com sucesso.");
+            toast.success("Tema deletado com sucesso.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         } catch (error) {
             console.log(`Error: ${error}`)
-            alert("Erro ao deletar tema.")
+            toast.error("Erro ao deletar tema.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         }
 
     }

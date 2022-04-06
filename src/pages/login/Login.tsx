@@ -6,6 +6,7 @@ import { addToken } from '../../store/tokens/actions';
 import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import './Login.css';
+import { toast } from 'react-toastify';
 
 
 
@@ -41,9 +42,27 @@ function Login() {
         e.preventDefault();
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
-            alert("Usuário logado com suscesso!")
+            toast.success("Usuário logado com sucesso!", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         } catch (error){
-            alert("Usuário ou senha não encontrados!")
+            toast.error("Usuário ou senha não encontrados! Por favor, digite novamente.", {
+                position: "top-right", //posição do alerta
+                autoClose: 2000, //tempo da notificação na tela
+                hideProgressBar: false, //se aparece barra de progresso
+                closeOnClick: true, //se aparece o X para fechar a notificação
+                pauseOnHover: true, //se passar o mouse em cima, o tempo para fechar congela
+                draggable: false, //se pode mover a notificação de local
+                theme: "colored", // visual
+                progress: undefined,
+            });
         }
     }
 
