@@ -9,13 +9,16 @@ Front-end finalizado em abril/2022.
 <ul>
   <li>HTML</li>
   <li>CSS</li>
-  <li>TypeScrip</li>
+  <li>TypeScript</li>
   <li>React</li>
   <li>Material-UI</li>
   <li>Axios</li>
   <li>Redux</li>
   <li>Netlify</li>
 </ul>
+
+<h2>Link da aplicação</h2>
+https://mundinhomariisneves.netlify.app
 
 <h2>Contato</h2>
 LinkedIn: <br />
